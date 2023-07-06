@@ -1,0 +1,61 @@
+/* Custom styles for FullCalendar */
+.fc-header-toolbar {
+    background-color: #333;
+    color: white;
+  }
+  
+  .fc-daygrid-event {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .fc-timegrid-slot {
+    background-color: #f8f9fa;
+  }
+  
+  .fc-day-today {
+    background-color: #ffeeba;
+  }
+  
+  /* Custom class for closing time slots */
+  .closing-hours {
+    color: grey;
+  }
+  .closing-hours-slot {
+    color: grey;
+  }
+  
+  /* Custom class for day view background color */
+  .day-view .fc-scrollgrid {
+    background-color: black;
+  }
+  
+  .fc-timegrid-slot:hover {
+    background-color: lightblue;
+  }
+
+  .highlighted-event {
+    background-color: #fddfcf;
+    border-color: #f7ce68;
+  }
+  
+  .calendar-container .fc-timegrid-slots tr:hover {
+    background-color: #fddfcf;
+    cursor: pointer;
+  }
+  
+  .calendar-container .fc-timegrid-axis-cells .fc-timegrid-axis-cell:hover {
+    background-color: #fddfcf;
+    cursor: pointer;
+  }
+  
+  .hovered-time-slot {
+    position: absolute;
+    background-color: #f7ce68;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  
