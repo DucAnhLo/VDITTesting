@@ -9,19 +9,6 @@ import './Calendar.css';
 
 function Calendar() {
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [events, setEvents] = useState([
-    {
-      title: 'Example Event',
-      start: '2023-07-03T10:00:00',
-      end: '2023-07-03T12:00:00',
-    },
-    {
-      title: 'Example Event',
-      start: '2023-07-03T10:30:00',
-      end: '2023-07-03T12:30:00',
-    },
-  ]);
-
   const calendarRef = useRef(null);
   const datePickerRef = useRef(null);
 
@@ -46,13 +33,9 @@ function Calendar() {
   };
 
   const openDatePicker = () => {
-    const datePickerRef = document.querySelector('.custom-datepicker');
-    if (datePickerRef) {
-      datePickerRef.setOpen(true);
-    }
+    datePickerRef.current.setOpen(true);
   };
-  
-  
+
   const renderDatePicker = () => {
     return (
       <div className="header-date-picker">
@@ -61,6 +44,7 @@ function Calendar() {
           onChange={handleDateChange}
           className="custom-datepicker"
           ref={datePickerRef}
+          onClickOutside={() => datePickerRef.current.setOpen(false)}
         />
       </div>
     );
@@ -74,14 +58,14 @@ function Calendar() {
         initialView="timeGridDay"
         headerToolbar={{
           start: 'today prev,next',
-          center: 'customDatePicker',
+          center: renderDatePicker,
           end: 'dayGridMonth,timeGridWeek,timeGridDay',
         }}
         datesSet={(arg) => setSelectedDate(arg.start)}
         height={'100vh'}
         slotMinTime={'06:00:00'}
         slotMaxTime={'24:00:00'}
-        events={events}
+        events={[]}
         editable={true}
         eventDrop={handleEventDrop}
         eventResize={handleEventResize}
@@ -92,13 +76,6 @@ function Calendar() {
           endTime: '18:00', // an end time (6pm in this example)
         }}
         dateClick={handleDateClick}
-        customButtons={{
-          customDatePicker: {
-            text: selectedDate.toLocaleDateString(),
-            click: openDatePicker,
-          },
-        }}
-        customToolbar={renderDatePicker}
       />
     </div>
   );

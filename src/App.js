@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Calendar from './components/Calendar';
+import DatePicker from './components/DatePicker';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 
@@ -9,6 +10,7 @@ function App() {
     <div>
       <div>
         <Navbar />
+        {/* <DatePicker /> */}
       </div>
 
       <div className='flex'>

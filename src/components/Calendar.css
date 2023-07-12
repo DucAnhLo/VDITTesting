@@ -33,7 +33,7 @@
   .fc-timegrid-slot:hover {
     background-color: lightblue;
   }
-
+  
   .highlighted-event {
     background-color: #fddfcf;
     border-color: #f7ce68;
@@ -58,4 +58,19 @@
     font-size: 14px;
   }
   
+  .header-date-picker {
+    position: relative;
+  }
+  
+  .custom-datepicker {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+  }
+  
+  .custom-datepicker.react-datepicker-wrapper.show-datepicker .react-datepicker {
+    display: block;
+  }
   
