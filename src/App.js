@@ -1,26 +1,33 @@
 import React from 'react';
 import './App.css';
 import Calendar from './components/Calendar';
-import DatePicker from './components/DatePicker';
+import CustomDatePicker from './components/DatePicker';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
-function App() {
-  return (
-    <div>
-      <div>
-        <Navbar />
-        {/* <DatePicker /> */}
-      </div>
 
-      <div className='flex'>
-        <Sidebar />
-        <div className='flex-1'>
-          <Calendar/>
+  function App({children}) {
+    return (
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <div>
+          <div>
+            <Navbar />
+          </div>
+
+          <div className='flex'>
+            <Sidebar />
+            <div className='flex-1'>
+              {/* <div className='date-picker-container'>
+                <CustomDatePicker className='date-picker' />
+              </div> */}
+              <Calendar/>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  );
-}
+      </LocalizationProvider>
+    );
+  }
 
-export default App;
+  export default App;
